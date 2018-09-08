@@ -1,0 +1,48 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <h2>Skills</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Web Development</h5>
+            <hr class="blue thicker-hr">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'web'">
+                {{skill.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Application Development</h5>
+            <hr class="blue thicker-hr">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'application'">
+                {{skill.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Other</h5>
+            <hr class="blue thicker-hr">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'other'">
+                {{skill.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

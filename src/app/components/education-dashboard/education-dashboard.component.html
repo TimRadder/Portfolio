@@ -1,0 +1,18 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <h3>Education</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 mb-2" *ngFor="let edu of education">
+        <h3 class="card-text">{{edu.school}}</h3>
+        <hr class="thicker-hr blue"/>
+        <span><strong>{{edu.course}}</strong></span><br />
+        <span *ngIf="edu.awards != null"><strong>Awards:</strong></span><br/>
+        <ul class="list-group">
+          <li class="list-unstyled" *ngFor="let award of edu.awards">{{award.type}}: {{award.description}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

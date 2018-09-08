@@ -1,0 +1,11 @@
+.indent p {
+    text-indent: 2em;
+}
+
+.blue {
+    border-color: #235396;
+}
+
+.thicker-hr {
+    border-width: 2px;
+}

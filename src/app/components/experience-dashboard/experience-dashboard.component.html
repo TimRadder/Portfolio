@@ -1,0 +1,18 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <h3>Work Experience</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let experience of experiences">
+        <h3 class="card-text">{{experience.employer}}</h3>
+        <hr class="blue thicker-hr">
+        <ul class="list-unstyled">
+          <li><strong>Date: </strong>{{experience.startDate}} <span [hidden]="experience.endDate == 'January 1970'">- {{experience.endDate}}</span><span [hidden]="experience.endDate != 'January 1970'">- Present</span></li>
+          <li><strong>Title: </strong>{{experience.jobTitle}}</li>
+          <li class="pt-2 indent"><p>{{experience.description}}</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

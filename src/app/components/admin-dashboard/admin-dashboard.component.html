@@ -1,0 +1,33 @@
+<div class="row mb-5">
+  <div class="col-12">
+    <a href="" class="float-right">Logout <span class="fal fa-sign-out-alt"></span></a>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    Skills
+    <a href="" routerLink="/skills/add" class="float-right"><span class="far fa-plus-circle"></span> Add Skill</a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr class="d-flex">
+            <th scope="col" class="col-5">Skill Name</th>
+            <th scope="col" class="col-5">Skill Type</th>
+            <th scope="col" class="col-1 text-center">Edit</th>
+            <th scope="col" class="col-1 text-center">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let skill of skills" class="d-flex">
+            <td class="col-5">{{skill.name}}</td>
+            <td class="col-5">{{skill.type}}</td>
+            <td class="col-1 text-center"><button class="btn btn-warning" routerLink="/skills/edit/{{skill.id}}">Edit</button></td>
+            <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteSkill(skill.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
