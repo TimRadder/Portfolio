@@ -27,6 +27,7 @@ import {AuthGuard} from './guards/auth.guard';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminDashboardService } from './services/admin-dashboard.service';
 import { SkillEditComponent } from './components/edit-forms/skill-edit/skill-edit.component';
+import { ExperienceEditComponent } from './components/edit-forms/experience-edit/experience-edit.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { SkillEditComponent } from './components/edit-forms/skill-edit/skill-edi
     InterestFilterPipe,
     LoginFormComponent,
     AdminDashboardComponent,
-    SkillEditComponent
+    SkillEditComponent,
+    ExperienceEditComponent
   ],
   imports: [
     BrowserModule,

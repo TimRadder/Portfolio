@@ -3,21 +3,31 @@
     <a href="" class="float-right">Logout <span class="fal fa-sign-out-alt"></span></a>
   </div>
 </div>
-<div class="card">
-  <div class="card-header">
-    Skills
-    <a href="" routerLink="/skills/add" class="float-right"><span class="far fa-plus-circle"></span> Add Skill</a>
-  </div>
-  <div class="card-body">
+
+<ul class="nav nav-tabs" id="AdminTabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="SkillsTab" data-toggle="tab" href="#Skills" role="tab" aria-controls="Skills" aria-selected="true">Skills</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  id="ExperiencesTab" data-toggle="tab" href="#Experiences" role="tab" aria-controls="Experiences">Experience</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active"  id="EducationTab" data-toggle="tab" href="#Education" role="tab" aria-controls="Education">Education</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade" id="Skills" role="tabpanel" >
+    <a href="" routerLink="/skills/add" class="float-right mb-2 mt-2"><span class="far fa-plus-circle"></span> Add Skill</a>
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
         <thead>
-          <tr class="d-flex">
-            <th scope="col" class="col-5">Skill Name</th>
-            <th scope="col" class="col-5">Skill Type</th>
-            <th scope="col" class="col-1 text-center">Edit</th>
-            <th scope="col" class="col-1 text-center">Delete</th>
-          </tr>
+        <tr class="d-flex">
+          <th scope="col" class="col-5">Skill Name</th>
+          <th scope="col" class="col-5">Skill Type</th>
+          <th scope="col" class="col-1 text-center">Edit</th>
+          <th scope="col" class="col-1 text-center">Delete</th>
+        </tr>
         </thead>
         <tbody>
           <tr *ngFor="let skill of skills" class="d-flex">
@@ -27,6 +37,43 @@
             <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteSkill(skill.id)">Delete</button></td>
           </tr>
         </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="Experiences" role="tabpanel">
+    <a routerLink="/exp/add" class="float-right mb-2 mt-2"><span class="far fa-plus-circle"></span> Add Experience</a>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="d-flex">
+            <th scope="col" class="col-5">Employer</th>
+            <th scope="col" class="col-5">Job Title</th>
+            <th scope="col" class="col-1">Edit</th>
+            <th scope="col" class="col-1">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="d-flex" *ngFor="let exp of experiences">
+            <td class="col-5">{{exp.employer}}</td>
+            <td class="col-5">{{exp.jobTitle}}</td>
+            <td class="col-1 text-center"><button class="btn btn-warning" routerLink="/exp/edit/{{exp.id}}">Edit</button></td>
+            <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteExperience(exp.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="Education" role="tabpanel">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr class="d-flex">
+            <th scope="col" class="col-5">School</th>
+            <th scope="col" class="col-5">Course</th>
+            <th scope="col" class="col-1">Edit</th>
+            <th scope="col" class="col-1">Delete</th>
+          </tr>
+        </thead>
       </table>
     </div>
   </div>

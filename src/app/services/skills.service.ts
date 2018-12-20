@@ -22,7 +22,17 @@ export class SkillsService {
 
   getSkill(id: number): Observable<Response> {
     const url = `${this.configUrl}/${id}`;
-    return this.http.get<Response>(url);
+
+    const token = JSON.parse(localStorage.getItem('portfolioJWT'));
+
+    const authHttpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
+
+    return this.http.get<Response>(url, authHttpOptions);
   }
 
   addSkill(skill: Skill): Observable<Response> {
