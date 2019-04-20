@@ -3,9 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from '../models/Response';
 
+// Import Environment Variables
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class AuthService {
-  configURL = 'http://portfolioapi/api/login';
+  apiURL_Login = environment.apiURL + 'login';
+  apiURL_CheckAuth = environment.apiURL + 'checkAuth';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -15,7 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<Response> {
-    return this.http.post<Response>(this.configURL, {username, password}, this.httpOptions).pipe();
+    return this.http.post<Response>(this.apiURL_Login, {username, password}, this.httpOptions).pipe();
   }
 
   storeJWT(token: string) {
@@ -37,6 +41,6 @@ export class AuthService {
               'Authorization': 'Bearer ' + token
           })
       };
-    return this.http.post<Boolean>('http://portfolioapi/api/checkAuth', {}, authHttpOptions);
+    return this.http.post<Boolean>(this.apiURL_CheckAuth, {}, authHttpOptions);
   }
 }

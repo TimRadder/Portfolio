@@ -68,12 +68,20 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr class="d-flex">
-            <th scope="col" class="col-5">School</th>
+            <th scope="col" class="col-5">Institute</th>
             <th scope="col" class="col-5">Course</th>
             <th scope="col" class="col-1">Edit</th>
             <th scope="col" class="col-1">Delete</th>
           </tr>
         </thead>
+        <tbody>
+          <tr class="d-flex" *ngFor="let edu of education">
+            <td class="col-5">{{edu.school}}</td>
+            <td class="col-5">{{edu.course}}</td>
+            <td class="col-1 text-center"><button class="btn btn-warning" routerLink="/education/edit/{{edu.id}}">Edit</button></td>
+            <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteEducation(edu.id)">Delete</button></td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
