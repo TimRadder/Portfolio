@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
+import { Router } from '@angular/router';
 // Import requires Services
 import { AdminDashboardService } from '../../services/admin-dashboard.service';
 import { SkillsService } from '../../services/skills.service';
@@ -10,6 +10,7 @@ import { EducationService } from '../../services/education.service';
 import { Skill } from '../../models/Skill';
 import { Experience } from '../../models/Experience';
 import { Education } from '../../models/Education';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -25,7 +26,9 @@ export class AdminDashboardComponent implements OnInit {
               private _adminDashboard: AdminDashboardService,
               private _skillDashboard: SkillsService,
               private _experienceDashboard: ExperienceService,
-              private _educationDashboard: EducationService) { }
+              private _educationDashboard: EducationService,
+              private _authService: AuthService,
+              private _router: Router) { }
 
   ngOnInit() {
     this._adminDashboard.getDashboard().subscribe(data => {
@@ -76,5 +79,10 @@ export class AdminDashboardComponent implements OnInit {
         });
       }
     });
+  }
+
+  Logout() {
+    this._authService.deleteJWT();
+    this._router.navigate(['/']);
   }
 }

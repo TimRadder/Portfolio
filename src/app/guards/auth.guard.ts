@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot  } fro
 
 import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
+import {stat} from "fs";
 
 @Injectable()
 export class AuthGuard implements  CanActivate {
@@ -12,8 +13,12 @@ export class AuthGuard implements  CanActivate {
                 state: RouterStateSnapshot): Promise<boolean> {
         return new Promise((resolve) => {
             if (localStorage.getItem('portfolioJWT') === null) {
-                this.router.navigate(['/']);
-                resolve(false);
+                if (state.url === '/login') {
+                    resolve(true);
+                } else {
+                    this.router.navigate(['/']);
+                    resolve(false);
+                }
             } else {
                 const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
@@ -23,6 +28,10 @@ export class AuthGuard implements  CanActivate {
                         console.log('NOT Authorized');
                         resolve(false);
                     } else {
+                        if (state.url === '/login') {
+                            this.router.navigate(['admin/dashboard']);
+                            resolve(false);
+                        }
                         resolve(true);
                     }
                 });

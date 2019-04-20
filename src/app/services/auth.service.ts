@@ -25,12 +25,17 @@ export class AuthService {
   storeJWT(token: string) {
     localStorage.setItem('portfolioJWT', JSON.stringify(token));
   }
+
   getJWT() {
-    if(localStorage.getItem('portfolioJWT') !== null) {
+    if (localStorage.getItem('portfolioJWT') !== null) {
       return JSON.parse(localStorage.getItem('portfolioJWT'));
     } else {
       return '';
     }
+  }
+
+  deleteJWT() {
+      localStorage.removeItem('portfolioJWT');
   }
 
   isAuth(token: string): Observable<Boolean> {

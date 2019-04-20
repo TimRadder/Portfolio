@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'exp/edit/:id', component: ExperienceEditComponent, canActivate: [AuthGuard] },
   { path: 'education/edit/:id', component: EducationEditComponent, canActivate: [AuthGuard]},
   { path: 'admin/dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginFormComponent}
+  { path: 'login', component: LoginFormComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
