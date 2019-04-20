@@ -1,0 +1,52 @@
+<div class="row mb-3">
+  <div class="col-md-6">
+    <a routerLink="/admin/dashboard" href=""><i class="fas fa-arrow-alt-circle-left"></i> Dashboard</a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h3>Edit Education</h3>
+  </div>
+  <div class="card-body">
+    <form #educationEditForm="ngForm">
+      <div class="row">
+        <div class="form-group col-9">
+          <label for="school">Institute</label>
+          <input type="text" class="form-control" name="school" id="school" [(ngModel)]="education.school" required />
+        </div>
+        <div class="form-group col-3">
+          <label for="gradDate">Graduation Date</label>
+          <input type="date" class="form-control" name="gradDate" id="gradDate" [(ngModel)]="education.gradDate" required />
+        </div>
+        <div class="form-group col-12">
+          <label for="course">Course</label>
+          <input type="text" name="course" class="form-control" id="course" [(ngModel)]="education.course" required />
+        </div>
+      </div>
+      <br />
+      <h5>Awards</h5>
+      <hr>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr class="d-flex">
+              <th class="col-6">Description</th>
+              <th class="col-4">Type</th>
+              <th class="col-1">Edit</th>
+              <th class="col-1">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="d-flex" *ngFor="let award of education.awards">
+              <td class="col-6">{{award.description}}</td>
+              <td class="col-4">{{award.type}}</td>
+              <td class="col-1"><button class="btn btn-warning">Edit</button></td>
+              <td class="col-1"><button class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

@@ -5,18 +5,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Experience } from '../models/Experience';
 import { Response } from '../models/Response';
 
+// Import Environment Variables
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class ExperienceService {
-  configUrl = 'http://portfolioapi/api/exp';
+  apiURL = environment.apiURL + 'exp';
 
   constructor(private http: HttpClient) { }
 
   getExperiences(): Observable<Experience[]> {
-    return this.http.get<Experience[]>(this.configUrl + 's');
+    return this.http.get<Experience[]>(this.apiURL + 's');
   }
 
   getExperience(id: number): Observable<Response> {
-    const url = `${this.configUrl}/${id}`;
+    const url = `${this.apiURL}/${id}`;
 
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
@@ -39,11 +42,11 @@ export class ExperienceService {
         'Authorization': 'Bearer ' + token
       })
     };
-    return this.http.post<Response>(this.configUrl + '/add', experience, authHttpOptions).pipe();
+    return this.http.post<Response>(this.apiURL + '/add', experience, authHttpOptions).pipe();
   }
 
   updateExperience(exp: Experience): Observable<Response> {
-    const url = `${this.configUrl}/update/${exp.id}`;
+    const url = `${this.apiURL}/update/${exp.id}`;
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
     const authHttpOptions = {
@@ -56,7 +59,7 @@ export class ExperienceService {
   }
 
   deleteExperience(id: number): Observable<Response> {
-    const url = `${this.configUrl}/delete/${id}`;
+    const url = `${this.apiURL}/delete/${id}`;
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
     const authHttpOptions = {

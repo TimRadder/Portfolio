@@ -5,9 +5,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Skill } from '../models/Skill';
 import { Response } from '../models/Response';
 
+// Import Environment Variables
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class SkillsService {
-  configUrl = 'http://portfolioapi/api/skill';
+  apiURL = environment.apiURL + 'skill';
   httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -17,11 +20,11 @@ export class SkillsService {
   constructor(private http: HttpClient) { }
 
   getSkills(): Observable<Response> {
-    return this.http.get<Response>(this.configUrl + 's');
+    return this.http.get<Response>(this.apiURL + 's');
   }
 
   getSkill(id: number): Observable<Response> {
-    const url = `${this.configUrl}/${id}`;
+    const url = `${this.apiURL}/${id}`;
 
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
@@ -48,11 +51,11 @@ export class SkillsService {
       })
     };
 
-    return this.http.post<Response>(this.configUrl + '/add', data, authHttpOptions).pipe();
+    return this.http.post<Response>(this.apiURL + '/add', data, authHttpOptions).pipe();
   }
 
   updateSkill(skill: Skill): Observable<Response> {
-    const url = `${this.configUrl}/update/${skill.id}`;
+    const url = `${this.apiURL}/update/${skill.id}`;
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
     const authHttpOptions = {
@@ -65,7 +68,7 @@ export class SkillsService {
   }
 
   deleteSkill(id: number): Observable<Response> {
-    const url = `${this.configUrl}/delete/${id}`;
+    const url = `${this.apiURL}/delete/${id}`;
     const token = JSON.parse(localStorage.getItem('portfolioJWT'));
 
     const authHttpOptions = {

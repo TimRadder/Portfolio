@@ -28,6 +28,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminDashboardService } from './services/admin-dashboard.service';
 import { SkillEditComponent } from './components/edit-forms/skill-edit/skill-edit.component';
 import { ExperienceEditComponent } from './components/edit-forms/experience-edit/experience-edit.component';
+import { EducationEditComponent } from './components/edit-forms/education-edit/education-edit.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ExperienceEditComponent } from './components/edit-forms/experience-edit
     LoginFormComponent,
     AdminDashboardComponent,
     SkillEditComponent,
-    ExperienceEditComponent
+    ExperienceEditComponent,
+    EducationEditComponent
   ],
   imports: [
     BrowserModule,

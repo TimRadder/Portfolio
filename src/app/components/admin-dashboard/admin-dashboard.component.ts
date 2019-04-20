@@ -5,9 +5,11 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AdminDashboardService } from '../../services/admin-dashboard.service';
 import { SkillsService } from '../../services/skills.service';
 import { ExperienceService } from '../../services/experience.service';
+import { EducationService } from '../../services/education.service';
 // Import Models
 import { Skill } from '../../models/Skill';
 import { Experience } from '../../models/Experience';
+import { Education } from '../../models/Education';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -17,16 +19,19 @@ import { Experience } from '../../models/Experience';
 export class AdminDashboardComponent implements OnInit {
   skills: Skill[];
   experiences: Experience[];
+  education: Education[];
 
   constructor(private _flash: FlashMessagesService,
               private _adminDashboard: AdminDashboardService,
               private _skillDashboard: SkillsService,
-              private _experienceDashboard: ExperienceService) { }
+              private _experienceDashboard: ExperienceService,
+              private _educationDashboard: EducationService) { }
 
   ngOnInit() {
     this._adminDashboard.getDashboard().subscribe(data => {
       this.skills = data['jsonData']['skills'];
       this.experiences = data['jsonData']['experience'];
+      this.education = data['jsonData']['education'];
     });
   }
 
@@ -52,6 +57,20 @@ export class AdminDashboardComponent implements OnInit {
         this.experiences.splice(index, 1);
 
         this._flash.show('Experience has been deleted', {
+          cssClass: 'alert-success',
+          timeout: 3000
+        });
+      }
+    });
+  }
+
+  DeleteEducation(id) {
+    this._educationDashboard.deleteEducation(id).subscribe(data => {
+      if (data['code'] === 200) {
+        const index: number = this.education.findIndex(edu => edu.id === id);
+        this.education.splice(index, 1);
+
+        this._flash.show('Education has been deleted', {
           cssClass: 'alert-success',
           timeout: 3000
         });
