@@ -3,7 +3,6 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot  } fro
 
 import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
-import {stat} from "fs";
 
 @Injectable()
 export class AuthGuard implements  CanActivate {
@@ -24,9 +23,13 @@ export class AuthGuard implements  CanActivate {
 
                 this.authService.isAuth(token).pipe(first()).subscribe(res => {
                     if (!res) {
-                        this.router.navigate(['/']);
-                        console.log('NOT Authorized');
-                        resolve(false);
+                        if (state.url === '/login') {
+                           resolve(true);
+                        } else {
+                            this.router.navigate(['/']);
+                            console.log('NOT Authorized');
+                            resolve(false);
+                        }
                     } else {
                         if (state.url === '/login') {
                             this.router.navigate(['admin/dashboard']);

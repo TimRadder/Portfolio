@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -29,6 +31,8 @@ import { AdminDashboardService } from './services/admin-dashboard.service';
 import { SkillEditComponent } from './components/edit-forms/skill-edit/skill-edit.component';
 import { ExperienceEditComponent } from './components/edit-forms/experience-edit/experience-edit.component';
 import { EducationEditComponent } from './components/edit-forms/education-edit/education-edit.component';
+import { EducationAwardEditComponent } from './Modals/EditModals/education-award-edit/education-award-edit.component';
+import { EducationAwardAddComponent } from './Modals/AddModals/education-award-add/education-award-add.component';
 
 
 @NgModule({
@@ -48,16 +52,26 @@ import { EducationEditComponent } from './components/edit-forms/education-edit/e
     AdminDashboardComponent,
     SkillEditComponent,
     ExperienceEditComponent,
-    EducationEditComponent
+    EducationEditComponent,
+    EducationAwardEditComponent,
+    EducationAwardAddComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    NgbModule
   ],
   providers: [SkillsService, ExperienceService, EducationService, InterestService, AuthService, AuthGuard, AdminDashboardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+      EducationAwardEditComponent,
+      EducationAwardAddComponent
+  ]
 })
 export class AppModule { }

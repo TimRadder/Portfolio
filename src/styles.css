@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 .indent p {
     text-indent: 2em;
 }
@@ -14,4 +16,16 @@
 .alert p {
     margin: 0;
     padding: 0;
+}
+
+.fake-link {
+    color: #007bff;
+    text-decoration: none;
+
+}
+
+.fake-link:hover {
+    color: #0052AB;
+    text-decoration: underline;
+    cursor: pointer;
 }
