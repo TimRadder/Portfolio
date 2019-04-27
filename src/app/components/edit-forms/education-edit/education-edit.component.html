@@ -23,31 +23,34 @@
           <label for="course">Course</label>
           <input type="text" name="course" class="form-control" id="course" [(ngModel)]="education.course" required />
         </div>
-      </div>
-      <br />
-      <h5>Awards</h5>
-      <hr>
-      <span class="float-right mb-2 mt-2 fake-link" (click)="openAddModal()"><span class="far fa-plus-circle"></span> Add Award</span>
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr class="d-flex">
-              <th class="col-6">Description</th>
-              <th class="col-4">Type</th>
-              <th class="col-1">Edit</th>
-              <th class="col-1">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="d-flex" *ngFor="let award of education.awards">
-              <td class="col-6">{{award.description}}</td>
-              <td class="col-4">{{award.type}}</td>
-              <td class="col-1"><button class="btn btn-warning" (click)="openEditModal(award.id)">Edit</button></td>
-              <td class="col-1"><button class="btn btn-danger" (click)="deleteAward(award.id)">Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary float-right" (click)="saveEducation()"><i class="fal fa-save fa-lg"></i> Save</button>
+        </div>
       </div>
     </form>
+    <br />
+    <h5>Awards</h5>
+    <hr>
+    <span class="float-right mb-2 mt-2 fake-link" (click)="openAddModal()"><span class="far fa-plus-circle"></span> Add Award</span>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr class="d-flex">
+            <th class="col-6">Description</th>
+            <th class="col-4">Type</th>
+            <th class="col-1">Edit</th>
+            <th class="col-1">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="d-flex" *ngFor="let award of education.awards">
+            <td class="col-6">{{award.description}}</td>
+            <td class="col-4">{{award.type}}</td>
+            <td class="col-1"><button class="btn btn-warning" (click)="openEditModal(award.id)">Edit</button></td>
+            <td class="col-1"><button class="btn btn-danger" (click)="deleteAward(award.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

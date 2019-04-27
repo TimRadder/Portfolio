@@ -20,9 +20,10 @@ import { EducationService } from '../../../services/education.service';
 export class EducationEditComponent implements OnInit {
 
   education: Education = {
+    id: -1,
     school: '',
     course: '',
-    gradDate: new Date().toString(),
+    gradDate: new Date().toISOString().split('T')[0].toString(),
     schoolID: '',
     awards: []
   };
@@ -42,11 +43,29 @@ export class EducationEditComponent implements OnInit {
   ngOnInit() {
     const routeparams = this._activeRoute.snapshot.params;
     this._educationService.getOneEducation(routeparams.id).subscribe(data => {
+      this.education.id = routeparams.id;
       this.education.school = data[0][0].school;
       this.education.course = data[0][0].course;
       this.education.gradDate = data[0][0].gradDate;
       this.education.schoolID = data[0][0].schoolID;
       this.education.awards = data[1];
+    });
+  }
+
+  saveEducation() {
+    this._educationService.updateEducation(this.education).subscribe(data => {
+      console.log(data);
+      if (data.code === 200) {
+        this._flash.show(data.message, {
+          cssClass: 'alert-success',
+          timeout: 3000
+        });
+      } else {
+        this._flash.show(data.message, {
+          cssClass: 'alert-danger',
+          timeout: 3000
+        });
+      }
     });
   }
 

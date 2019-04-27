@@ -33,6 +33,7 @@ import { ExperienceEditComponent } from './components/edit-forms/experience-edit
 import { EducationEditComponent } from './components/edit-forms/education-edit/education-edit.component';
 import { EducationAwardEditComponent } from './Modals/EditModals/education-award-edit/education-award-edit.component';
 import { EducationAwardAddComponent } from './Modals/AddModals/education-award-add/education-award-add.component';
+import { EducationAddComponent } from './components/add-forms/education-add/education-add.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { EducationAwardAddComponent } from './Modals/AddModals/education-award-a
     ExperienceEditComponent,
     EducationEditComponent,
     EducationAwardEditComponent,
-    EducationAwardAddComponent
+    EducationAwardAddComponent,
+    EducationAddComponent
   ],
   imports: [
     BrowserModule,
