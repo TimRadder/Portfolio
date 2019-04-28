@@ -18,8 +18,8 @@ export class SkillAddComponent implements OnInit {
     {typeValue: 'other', userFriendly: 'Other'}
   ];
 
-  name: string = '';
-  type: string = '';
+  name = '';
+  type = '';
 
   constructor(private skillService: SkillsService, private flashMessage: FlashMessagesService) { }
 

@@ -1,0 +1,20 @@
+.list-group-item {
+    border:none;
+    padding: 0 1.25em;
+}
+
+.no-background {
+    background-color: transparent;
+}
+
+.skill-card {
+    background-color: #ffffff;
+    border: 2px solid #DCDDDE;
+    border-bottom: 5px solid #DCDDDE;
+    border-radius: 0 0 5px 5px;
+}
+
+hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}

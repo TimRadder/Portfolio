@@ -16,6 +16,12 @@ export class ExperienceDashboardComponent implements OnInit {
   ngOnInit() {
     this.experienceService.getExperiences().subscribe(experiences => {
       this.experiences = experiences;
+
+      for (let i = 0; i < this.experiences.length; i++) {
+        if (this.experiences[i].endDate === '1969-12') {
+          this.experiences[i].endDate = 'Present';
+        }
+      }
     });
   }
 

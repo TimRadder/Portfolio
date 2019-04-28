@@ -34,6 +34,8 @@ import { EducationEditComponent } from './components/edit-forms/education-edit/e
 import { EducationAwardEditComponent } from './Modals/EditModals/education-award-edit/education-award-edit.component';
 import { EducationAwardAddComponent } from './Modals/AddModals/education-award-add/education-award-add.component';
 import { EducationAddComponent } from './components/add-forms/education-add/education-add.component';
+import { InterestEditComponent } from './Modals/EditModals/interest-edit/interest-edit.component';
+import { InterestAddComponent } from './Modals/AddModals/interest-add/interest-add.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { EducationAddComponent } from './components/add-forms/education-add/educ
     EducationEditComponent,
     EducationAwardEditComponent,
     EducationAwardAddComponent,
-    EducationAddComponent
+    EducationAddComponent,
+    InterestEditComponent,
+    InterestAddComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,9 @@ import { EducationAddComponent } from './components/add-forms/education-add/educ
   bootstrap: [AppComponent],
   entryComponents: [
       EducationAwardEditComponent,
-      EducationAwardAddComponent
+      EducationAwardAddComponent,
+      InterestAddComponent,
+      InterestEditComponent
   ]
 })
 export class AppModule { }

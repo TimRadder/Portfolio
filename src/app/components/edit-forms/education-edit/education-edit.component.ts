@@ -29,10 +29,10 @@ export class EducationEditComponent implements OnInit {
   };
 
   modalOptions: NgbModalOptions = {
-  backdrop: 'static',
-  keyboard: false,
-  centered: false
-};
+    backdrop: 'static',
+    keyboard: false,
+    centered: false
+  };
 
   constructor(
       private _flash: FlashMessagesService,

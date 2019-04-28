@@ -17,8 +17,7 @@ export class EducationAwardEditComponent implements OnInit {
     type: ''
   };
   constructor(
-      public activeModal: NgbActiveModal,
-      private _educationService: EducationService
+      public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit() {

@@ -29,3 +29,36 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.list-triangle:before {
+    content: "";
+    border-color: transparent #B06804;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -0.65em;
+    top: 1.15em;
+    position: relative;
+}
+
+.blue-header {
+    color: white;
+    background-color: #2E65B2 !important;
+    border-radius: 5px !important;
+    border-bottom:5px solid #1c4d78 !important;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.card-body-indent {
+    margin: 0 0.5em;
+    border: 2px solid #C7C7C7;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 5px solid #C7C7C7;
+    border-top: none;
+    background-color: #ecf0f1 !important;
+}

@@ -1,43 +1,43 @@
-<div class="card mb-5">
-  <div class="card-header">
+<div class="card mb-5 no-border">
+  <div class="card-header blue-header">
     <h2>Skills</h2>
   </div>
-  <div class="card-body">
+  <div class="card-body card-body-indent">
     <div class="row">
       <div class="col">
-        <div class="card">
+        <div class="card skill-card">
           <div class="card-body">
             <h5 class="card-title">Web Development</h5>
             <hr class="blue thicker-hr">
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'web'">
-                {{skill.name}}
+              <li class="list-group-item no-background" *ngFor="let skill of skills | skillFilter:'web'">
+                <span class="list-triangle">{{skill.name}}</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card">
+        <div class="card skill-card">
           <div class="card-body">
             <h5 class="card-title">Application Development</h5>
             <hr class="blue thicker-hr">
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'application'">
-                {{skill.name}}
+              <li class="list-group-item no-background" *ngFor="let skill of skills | skillFilter:'application'">
+                <span class="list-triangle">{{skill.name}}</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card">
+        <div class="card skill-card">
           <div class="card-body">
             <h5 class="card-title">Other</h5>
             <hr class="blue thicker-hr">
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let skill of skills | skillFilter:'other'">
-                {{skill.name}}
+              <li class="list-group-item no-background" *ngFor="let skill of skills | skillFilter:'other'">
+                <span class="list-triangle">{{skill.name}}</span>
               </li>
             </ul>
           </div>

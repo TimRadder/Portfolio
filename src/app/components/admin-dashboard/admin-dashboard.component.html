@@ -6,18 +6,21 @@
 
 <ul class="nav nav-tabs" id="AdminTabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link" id="SkillsTab" data-toggle="tab" href="#Skills" role="tab" aria-controls="Skills" aria-selected="true">Skills</a>
+    <a class="nav-link active" id="SkillsTab" data-toggle="tab" href="#Skills" role="tab" aria-controls="Skills" aria-selected="true">Skills</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"  id="ExperiencesTab" data-toggle="tab" href="#Experiences" role="tab" aria-controls="Experiences">Experience</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active"  id="EducationTab" data-toggle="tab" href="#Education" role="tab" aria-controls="Education">Education</a>
+    <a class="nav-link"  id="EducationTab" data-toggle="tab" href="#Education" role="tab" aria-controls="Education">Education</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="InterestsTab" data-toggle="tab" href="#Interests" role="tab" aria-controls="Interests">Interests</a>
   </li>
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane fade" id="Skills" role="tabpanel" >
+  <div class="tab-pane fade show active" id="Skills" role="tabpanel" >
     <a href="" routerLink="/skills/add" class="float-right mb-2 mt-2"><span class="far fa-plus-circle"></span> Add Skill</a>
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
@@ -63,7 +66,7 @@
       </table>
     </div>
   </div>
-  <div class="tab-pane fade show active" id="Education" role="tabpanel">
+  <div class="tab-pane fade" id="Education" role="tabpanel">
     <a routerLink="/education/add" class="float-right mb-2 mt-2"><span class="far fa-plus-circle"></span> Add Education</a>
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
@@ -82,6 +85,29 @@
             <td class="col-1 text-center"><button class="btn btn-warning" routerLink="/education/edit/{{edu.id}}">Edit</button></td>
             <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteEducation(edu.id)">Delete</button></td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="Interests" role="tabpanel">
+    <span class="float-right mb-2 mt-2 fake-link" (click)="openInterestAddModal()"><span class="far fa-plus-circle"></span> Add Interest/Hobby</span>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+        <tr class="d-flex">
+          <th scope="col" class="col-5">Activity</th>
+          <th scope="col" class="col-5">Type</th>
+          <th scope="col" class="col-1">Edit</th>
+          <th scope="col" class="col-1">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-flex" *ngFor="let interest of interests">
+          <td class="col-5">{{interest.activity}}</td>
+          <td class="col-5">{{interest.type}}</td>
+          <td class="col-1 text-center"><button class="btn btn-warning" (click)="openInterestEditModal(interest.id)">Edit</button></td>
+          <td class="col-1 text-center"><button class="btn btn-danger" (click)="DeleteInterest(interest.id)">Delete</button></td>
+        </tr>
         </tbody>
       </table>
     </div>

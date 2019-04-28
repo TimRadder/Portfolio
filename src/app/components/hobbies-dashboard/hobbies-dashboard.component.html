@@ -1,17 +1,18 @@
-<div class="card mb-5">
-  <div class="card-header">
+<div class="card mb-5 no-border">
+  <div class="card-header blue-header">
     <h3>Hobbies and Interests</h3>
   </div>
-  <div class="card-body">
+  <div class="card-body card-body-indent">
     <h3>Hobbies</h3>
     <hr class="blue thicker-hr"/>
     <ul class="list-unstyled">
-      <li class="" *ngFor="let interest of interests | interestFilter:'hobby'">{{interest.activity}}</li>
+      <li class="list-triangle" *ngFor="let interest of interests | interestFilter:'hobby'">{{interest.activity}}</li>
     </ul>
+    <br />
     <h3 class="mt-2">Interests</h3>
     <hr class="blue thicker-hr"/>
     <ul class="list-unstyled">
-      <li class="" *ngFor="let interest of interests | interestFilter:'interest'">{{interest.activity}}</li>
+      <li class="list-triangle" *ngFor="let interest of interests | interestFilter:'interest'">{{interest.activity}}</li>
     </ul>
   </div>
 </div>

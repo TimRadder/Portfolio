@@ -3,11 +3,11 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Education } from '../models/Education';
+import {Award} from '../models/Awards';
+import {Response} from '../models/Response';
 
 // Import Environment Variables
 import { environment } from '../../environments/environment';
-import {Award} from '../models/Awards';
-import {Response} from '../models/Response';
 
 @Injectable()
 export class EducationService {

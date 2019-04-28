@@ -16,7 +16,7 @@ export class HobbiesDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.iService.getInterests().subscribe(data => {
-      this.interests = data;
+      this.interests = data['jsonData'];
     });
   }
 
